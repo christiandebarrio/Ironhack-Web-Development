@@ -1,0 +1,1 @@
+cities = ["miami", "madrid", "barcelona"]
