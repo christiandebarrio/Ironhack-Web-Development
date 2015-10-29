@@ -1,0 +1,82 @@
+footer a:link {
+	color: #FFFFFF;
+}
+
+footer a:visited {
+	color: #CCCCCC;
+}
+
+footer a:hover {
+	color: #999999;
+}
+
+
+footer {
+	margin: 10px 0px;
+	background-color: #444444;
+	border-top: 5px solid white;
+	padding: 30px 10px;
+	color: white;
+	font-size: 10px;
+	font-style: italic;
+	
+}
+footer p {
+	background-color: black;
+	color: grey;
+}
+
+header {
+	font-family: Cambria, Georgia, serif;
+	font-size: 40px;
+	text-align: center;
+	background-color: #444444;
+}
+
+header:hover {
+	background-color: #FFFFFF;
+}
+
+body {
+	font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+	background-color: rgb(200, 200, 200);
+}
+
+h1 {
+	font-family: "Baskerville";
+	font-size: 40px;
+	background-color: blue;
+	color: white;
+}
+
+.niceParagraph {
+	background-color: grey;
+	font-family: "Baskerville";
+}
+
+#finalParagraph {
+	background-color: red;
+	font-family: "Baskerville";
+}
+
+.articleContainer {
+	background-color: white;
+}
+
+.postAutor {
+	font-size: 20px;
+}
+
+.centeredElement {
+  width: 50%;
+  margin: auto;
+}
+
+article img {
+	float: right;
+	padding: -10px;
+}
+
+article * {
+	box-shadow: 10px 5px 5px #888888;
+}
