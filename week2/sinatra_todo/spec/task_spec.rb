@@ -23,7 +23,7 @@ describe "Task" do
 
   end
 
-  describe "complete?" do
+  describe "#complete?" do
 
     it "when create task complete? has to be false" do
       expect(@task.complete?).to be_falsy
@@ -31,18 +31,33 @@ describe "Task" do
 
   end
 
-  describe "complete!" do
+  describe "#complete!" do
 
     it "change complete attribute to true" do
-      expect(@task.complete!).to be_truthy
+      @task.complete!
+      expect(@task.complete?).to be_truthy
     end
 
   end
 
-  describe "make_incomplete!" do
+  describe "#make_incomplete!" do
     
     it "change complete attribute to false" do
-      expect(@task.make_incomplete!).to be_falsy
+      @task.make_incomplete!
+      expect(@task.complete?).to be_falsy
+    end
+
+  end
+
+  describe "#update_content!" do
+
+    it "update the task's content to 'Show me the money'" do
+      expect(@task.update_content!("Show me the money")).to eq("Show me the money")
+    end
+
+    it "when updated content the updated_at returns current time" do
+      @task.update_content!("Show me the money")
+      expect(@task.updated_at).to eq(Time.now.strftime "%Y-%m-%d %H:%M:%S")
     end
 
   end
