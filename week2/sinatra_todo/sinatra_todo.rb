@@ -10,5 +10,18 @@ class Task
     @content = content
     @id = @@current_id
     @@current_id += 1
+    @complete = false
+  end
+
+  def complete?
+    @complete
+  end
+
+  def complete!
+    @complete = true
+  end
+
+  def make_incomplete!
+    @complete = false
   end
 end
