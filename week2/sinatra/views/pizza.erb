@@ -1,0 +1,11 @@
+<h1>Pizza de <%= @pizza_name %></h1>
+<link rel="stylesheet" href="main.css">
+<img src="/pizza.jpg"
+     alt="pizza de peperoni"
+     width=400px>
+
+<ul>
+  <% @ingredients.each do  |ingr| %>
+    <li><%= ingr %></li>
+  <% end %>
+</ul>

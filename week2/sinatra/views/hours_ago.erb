@@ -1,0 +1,12 @@
+<h1>Time now:</h1>
+
+<h2><%= @time_now.strftime "%H:%M:%S"  %></h2>
+
+<h1>Time <%= @hour %> <% if @hour == 1 %>
+                          hour ago:
+                      <% else %>
+                          hours ago:
+                      <% end %>
+</h1>
+
+<h2><%= @time_ago  %></h2>
