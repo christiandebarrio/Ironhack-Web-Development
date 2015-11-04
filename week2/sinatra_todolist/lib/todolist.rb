@@ -1,12 +1,32 @@
-require 'pry'
+
 require 'rspec'
 require 'yaml/store'
 
+module ManageFile
+
+  def save
+    @todo_store.transaction do 
+        @todo_store[@user] = @tasks
+    end
+  end
+
+  def load_tasks
+    tasks = YAML.load_file('./public/tasks.yml')
+    if tasks
+      @tasks = tasks[@user]
+    else
+      @tasks
+    end
+  end
+
+end
+
 class TodoList
-  attr_reader :tasks, :user
+  attr_reader :tasks
+  include ManageFile
   
   def initialize user
-    @todo_store = YAML::Store.new('./public/tasks.yml')
+    @todo_store = YAML::Store.new('./public/tasks.yml') 
     @user = user
     @tasks = []
   end
@@ -31,9 +51,4 @@ class TodoList
     end
   end
 
-  def save
-    @todo_store.transaction do 
-        @todo_store[@user] = @tasks
-    end
-  end
 end
