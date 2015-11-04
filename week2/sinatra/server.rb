@@ -1,5 +1,8 @@
 require 'sinatra'
+require 'sinatra/reloader' if development?
 require 'pry'
+
+enable(:sessions)
 
 get "/" do
   "My first Sinatra app."  
@@ -39,4 +42,26 @@ get "/pizza/:pizzaname" do
   @pizza_name = params[:pizzaname]
 
   erb(:pizza)
+end
+
+get "/session_test/:text" do
+  text = params[:text]
+  session[:saved_value] = text
+  redirect '/session_test_show'
+end
+
+get "/session_test_show" do
+  session[:saved_value]
+end
+
+get "/login" do
+
+  erb(:login)
+end
+
+post "/login" do
+  user = params[:user]
+  password = params[:password]
+
+  Login.check_user_password?(user, password)
 end
