@@ -4,7 +4,7 @@ require 'pry'
 describe "TodoList" do
 
   before :each do
-    @tl = TodoList.new
+    @tl = TodoList.new("user")
     @task1 = Task.new("New task 1")
     @task2 = Task.new("New task 2")
   end
@@ -69,6 +69,14 @@ describe "TodoList" do
       @tl.add_task(@task2)
       ordered_tasks = @tl.sort_by_created("ASC")
       expect(ordered_tasks[0]).to eq(@task2)
+    end
+  end
+
+  describe "#save" do
+
+    it "" do
+      
+
     end
   end
 

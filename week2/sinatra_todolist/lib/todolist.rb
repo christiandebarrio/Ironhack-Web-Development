@@ -1,12 +1,14 @@
 require 'pry'
 require 'rspec'
+require 'yaml/store'
 
 class TodoList
-  attr_reader :tasks :user
+  attr_reader :tasks, :user
   
   def initialize user
-      @user = user
-      @tasks = []
+    @todo_store = YAML::Store.new('./public/tasks.yml')
+    @user = user
+    @tasks = []
   end
 
   def add_task task_to_add
@@ -26,6 +28,12 @@ class TodoList
       @tasks.sort_by { |task| task.created_at}
     elsif order == "ASC"
       @tasks.sort_by { |task| task.created_at}.reverse
+    end
+  end
+
+  def save
+    @todo_store.transaction do 
+        @todo_store[@user] = @tasks
     end
   end
 end
