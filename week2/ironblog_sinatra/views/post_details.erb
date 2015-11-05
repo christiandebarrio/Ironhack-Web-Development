@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Post details</title>
+</head>
+<body>
+  <div>
+    <h1><%=  @posts[@index].title %></h1>
+    <h2><%=  @posts[@index].date.strftime(@time_format) %></h2>
+    <p><%=  @posts[@index].text %></p>
+  </div>
+</body>
+</html>

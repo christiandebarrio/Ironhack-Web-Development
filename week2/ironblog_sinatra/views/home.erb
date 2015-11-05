@@ -10,10 +10,9 @@
   </div>
   <div>
     <div>
-      <% @my_posts.each do |post| %>
-        <h2><%= post.title %></h2>
+      <% @posts.each_with_index do |post, index| %>
+        <a href="/post_details/<%= index %>"><%= post.title %></a>
         <h3><%= post.date.strftime(@time_format) %></h3>
-        <p><%= post.text  %></p>
         <% end %>
     </div>
   </div>
