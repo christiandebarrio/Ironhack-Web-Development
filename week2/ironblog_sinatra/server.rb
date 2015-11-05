@@ -13,7 +13,7 @@ my_blog.add_post(post2)
 my_blog.add_post(post3)
 
 get "/" do
-  @my_posts = my_blog.posts
+  @my_posts = my_blog.latest_posts
   @time_format = "%Y-%m-%d ··· %H:%M"
   erb(:home)
 end

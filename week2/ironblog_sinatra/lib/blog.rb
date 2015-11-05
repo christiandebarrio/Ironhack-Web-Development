@@ -1,3 +1,4 @@
+require 'pry'
 class Blog
   attr_accessor :list_posts
 
@@ -14,6 +15,6 @@ class Blog
   end
 
   def latest_posts
-    @list_post.sort
+    @list_posts = @list_posts.sort_by { |post| post.date }.reverse
   end
 end
