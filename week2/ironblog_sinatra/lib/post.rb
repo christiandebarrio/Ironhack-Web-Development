@@ -1,9 +1,9 @@
 class Post
   attr_accessor :title, :date, :text
   
-  def initialize title, date, text
+  def initialize title, text
     @title = title
-    @date = date
+    @date = Time.now
     @text = text
 
   end

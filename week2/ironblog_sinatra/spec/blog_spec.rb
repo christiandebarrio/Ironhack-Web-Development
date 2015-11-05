@@ -24,4 +24,15 @@ RSpec.describe 'blog' do
     end
   end
 
+  describe "@latest_posts" do
+
+    it "Add two posts and order the latest first" do
+      blog.add_post("Post1")
+      blog.add_post("Post2")
+      expect(blog.latest_posts).to eq(blog.list_posts.reverse)
+
+
+    end
+  end
+
 end

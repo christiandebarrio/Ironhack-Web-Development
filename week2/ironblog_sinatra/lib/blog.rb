@@ -12,4 +12,8 @@ class Blog
   def posts
     @list_posts
   end
+
+  def latest_posts
+    @list_post.sort
+  end
 end
