@@ -9,6 +9,11 @@
     <h1>Ironblog</h1>
   </div>
   <div>
+    <form action="/" method="POST">
+      <button type="submit" name="new_post">New post</button>
+    </form>
+  </div>
+  <div>
     <div>
       <% @posts.each_with_index do |post, index| %>
         <a href="/post_details/<%= index %>"><%= post.title %></a>
