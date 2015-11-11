@@ -1,0 +1,54 @@
+header {
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e5e5e5;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.header-left {
+  float: left;
+  position: relative;
+}
+
+.header-center {
+  text-align: center;
+}
+
+.header-right {
+  float: right;
+}
+
+.footer-container {
+  
+}
+
+.footer-left {
+  float: left;
+
+}
+
+.footer-center {
+  float: center;
+
+}
+
+.footer-right {
+  float: right;
+
+}
+
+.user-profile-container {
+  float: left;
+}
+
+.user-profile {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.user-profile-details {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.conections {
+  border-bottom: 1px solid #e5e5e5;
+}
