@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  
   def index
     @contacts = Contact.show
   end
@@ -14,5 +15,12 @@ class ContactsController < ApplicationController
     contact.save
     
     redirect_to('/contacts')
+  end
+
+  def show
+    @contact = Contact.find_by(id: params[:id]) ||
+    if @contact.empty?
+      render(contact_not_found)
+    end
   end
 end

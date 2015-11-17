@@ -7,8 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="wrapped">
+    <head>
+      Address Book
+    </head>
 
-<%= yield %>
+    <%= yield %>
 
+    <footer>
+      created by Christian in Rails.
+    </footer>
+  </div>
 </body>
 </html>
