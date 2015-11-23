@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <style>
+    .unicorn-mode {color: red;}
+  </style>
+</head>
+<body>
+<div class="all">
+  <p>Pepepee</p>
+
+  <button class="js-pizza">Pizza</button>
+
+  <button id="cookies">Cooikies</button>
+
+  <button data-hook="coffee donuts">Coffee</button>
+  
+  <ul class="list">
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>
+  </ul>
+
+
+  <p>I like pizza</p>
+  <h1 class="title">jQuery Exercises</h1>
+  <button class="js-tacos">Tacos</button>
+  <button class="do stuff">Do stuff</button>
+
+  <script type="text/javascript"> 
+    $(document).on('ready',function () {
+      $('#info').before('<h1>hoa</h1>')
+    });
+  </script>
+
+
+  <input type="text" id="info" value="Hello world">
+  <p id="quizz">Add the h1 on top of this paragraph.</p>
+</div>
+
+  <button id="empty-all">Empty All</button>
+  <button id="unicorn">Change color</button>
+  <button>button 3</button>
+  <button>button 4</button>
+
+  <form action="" id="my_form">
+    <input type="text" id="text" name="text">
+    <input type="email" id="email" name="email">
+
+    <button type="submit">Send</button>
+  </form>
+
+  <script>
+    $('#my_form').on('submit',function(event){
+      var text = $(#text).val();
+      var email = $(#email).val();
+
+      if(text === "" || email = ""){
+        event.preventDefault();
+        alert("Rellena")
+      };
+    });
+    $('#empty-all').on('click', function () {
+      $('.all').fadeToggle();
+    });
+    $('#unicorn').on('click', function () {
+      $('.all').toggleClass('unicorn-mode');
+    });
+    $('button').on('click', function (event) {
+      $(event.currentTarget).hide();
+    });
+  </script>
+
+
+</body>
+</html>
