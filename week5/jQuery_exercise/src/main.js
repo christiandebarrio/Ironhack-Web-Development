@@ -19,6 +19,8 @@ var create_list = function () {
 };
 create_list();
 refresh();
+$('.phrases-list').hide();  
+
 
 $('#refresh').on('click', function(){
   refresh();
@@ -46,5 +48,5 @@ $('#add-phrase').on('submit', function(event) {
 
 $('.toggle-show').on('click', function(event){
   event.preventDefault();
-  $('.phrases-list').toggle()
+  $('.phrases-list').toggle();
 });
