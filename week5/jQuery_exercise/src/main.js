@@ -8,6 +8,11 @@ var phrases = [
   "Le haré una oferta que no rechazará"
 ];
 
-var random = Math.floor((Math.random() * phrases.length));
-var phrase = phrases[random]
-$('h2').text(phrase)
+var refresh = function(){
+  $('h2').text(phrases[Math.floor(Math.random() * phrases.length)]);
+};
+refresh();
+
+$('#refresh').on('click', function(){
+  refresh();
+});
