@@ -11,23 +11,40 @@ var phrases = [
 var refresh = function(){
   $('h2').text(phrases[Math.floor(Math.random() * phrases.length)]);
 };
+var create_list = function () {
+  for (var i = 0; i < phrases.length; i++) {
+    var li_item = '<li>' + phrases[i] + '</li>';
+    $('.phrases-list').append(li_item);
+  };
+};
+create_list();
 refresh();
 
 $('#refresh').on('click', function(){
   refresh();
 });
 
-$(document).ready(function() {
-    $('.add-phrase').keydown(function(event) {
-        if (event.keyCode == 13) {
-            phrases.push($('#add-phrase input').val());
-            $('#add-phrase input').val('');
-            return false;
-         }
-    });
+// $(document).on('ready', function() {
+//     $('.add-phrase').on('keypress', (function(event) {
+//         if (event.keyCode == 13) {
+//             event.preventDefault();
+//             phrases.push($('#add-phrase input').val());
+//             $('#add-phrase input').val('');
+//             $('.phrases-list').empty();
+//             create_list();
+//          }
+//     });
+// });
+
+$('#add-phrase').on('submit', function(event) {
+  event.preventDefault();
+  phrases.push($('#add-phrase input').val());
+  $('#add-phrase input').val('');
+  $('.phrases-list').empty();
+  create_list();
 });
 
-$('#add-phrase').on('submit', function(){
-  var new_phrase = $('input').val();
-  phrases.push(new_phrase);
+$('.toggle-show').on('click', function(event){
+  event.preventDefault();
+  $('.phrases-list').toggle()
 });
