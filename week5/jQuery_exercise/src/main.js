@@ -16,3 +16,18 @@ refresh();
 $('#refresh').on('click', function(){
   refresh();
 });
+
+$(document).ready(function() {
+    $('.add-phrase').keydown(function(event) {
+        if (event.keyCode == 13) {
+            phrases.push($('#add-phrase input').val());
+            $('#add-phrase input').val('');
+            return false;
+         }
+    });
+});
+
+$('#add-phrase').on('submit', function(){
+  var new_phrase = $('input').val();
+  phrases.push(new_phrase);
+});
