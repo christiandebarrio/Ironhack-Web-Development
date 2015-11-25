@@ -1,0 +1,25 @@
+<head>
+  <title>Ironhack Characters</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+<h1 class="complex-heading">
+    HTTP Requests in JavaScript
+    <span>a.k.a. AJAX</span>
+  </h1>
+
+  <form>
+  <!-- Add the form fields for Name, Occupation, and Weapon -->
+    <label for="name">Name</label>
+    <input id="name" type="text" name="name"/>
+    <label for="occupation">Occupation</label>
+    <input id="occupation" type="text" name="occupation">
+    <label for="weapon">Weapon</label>
+    <input id="weapon" type="text" name="weapon">
+    <button class="js-submit" type="submit">SUBMIT</button>
+  </form>
+  <br>
+  <button class="js-characters">Fetch characters</button>
+
+  <ul class="js-character-list"></ul>
+
+  <script src="main.js"></script>
