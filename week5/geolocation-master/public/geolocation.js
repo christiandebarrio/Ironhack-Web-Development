@@ -14,6 +14,7 @@ function onLocation(position){
   };
 
   createMap(myPosition);
+  setupAutocomplete();
 }
 
 function onError(err){
@@ -32,5 +33,20 @@ function createMarker(position) {
   var market = new google.maps.Marker({
     position: position,
     map: map
+  });
+}
+
+function setupAutocomplete() {
+  var input = $('#get-places')[0];
+  var autocomplete = new google.maps.places.Autocomplete(input);
+  autocomplete.addListener('place_changed', function(){
+    var place = autocomplete.getPlace();
+    if (place.geometry.location) {
+      map.setCenter(place.geometry.location);
+      map.setZoom(17);
+    } else {
+      alert("The place has no location...?")
+    }
+    createMarker(place.geometry.location);
   });
 }
