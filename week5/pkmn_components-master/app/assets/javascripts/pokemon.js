@@ -22,9 +22,10 @@
         // console.log("Pokemon weight: " + self.info.weight);
 
         $(".js-pkmn-image").empty();
-        self.urlForImage();
+        self.findImage();
         $(".js-pkmn-name").text(self.info.name);
-        $(".js-pkmn-number").text("#" + self.info.pkdx_id);        
+        $(".js-pkmn-number").text("#" + self.info.pkdx_id);  
+        self.findLastGenDescription();
 
         $(".js-pkmn-height").text(self.info.height);
         $(".js-pkmn-weight").text(self.info.weight);
@@ -46,7 +47,40 @@
 
   };
 
-  PokemonApp.Pokemon.prototype.urlForImage = function () {
+  PokemonApp.Pokemon.prototype.findLastGenDescription = function () {
+    var self = this;
+    var arrDescriptions = self.info.descriptions;
+    var lastGen = arrDescriptions.reduce(function(prevValue, currValue, currIndex, array) {
+                  if(parseInt(prevValue.name.split("_")[prevValue.name.length -1]) > parseInt(currValue.name.split("_")[prevValue.name.length -1])) {
+                    return prevValue;
+                  } else {
+                    return currValue;
+                  }
+                });
+
+    self.findDescription(lastGen);
+  };
+
+  PokemonApp.Pokemon.prototype.findDescription = function (lastGen) {
+    var self = this;
+    var baseUrl = "http://pokeapi.co";
+    var index = self.info.descriptions.indexOf(lastGen);
+    var urlDescription = baseUrl + self.info.descriptions[index].resource_uri;
+
+    $.ajax({
+      url: urlDescription,
+      success: function(response) {
+        self.description = response.description;
+        self.renderDescription(self.description);
+      }
+    });
+  };
+
+  PokemonApp.Pokemon.prototype.renderDescription = function (url) {
+    return $(".js-pkmn-description").text(this.description);
+  };
+
+  PokemonApp.Pokemon.prototype.findImage = function () {
 
     var self = this;
     var baseUrl = "http://pokeapi.co";
@@ -56,12 +90,12 @@
       url: baseUrl + uri,
       success: function (response) {
         self.image = baseUrl + response.image;
-        self.addImage(self.image);
+        self.renderImage(self.image);
       }
     })
   };
 
-  PokemonApp.Pokemon.prototype.addImage = function (urlImage) {
+  PokemonApp.Pokemon.prototype.renderImage = function (url) {
     return $(".js-pkmn-image").append('<img src="' + this.image + '" alt="' + this.info.name + '"/>');
   };
 
