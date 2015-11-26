@@ -1,4 +1,5 @@
 var map;
+window.localStorage.getItem("mark1")
 
 if ("geolocation" in navigator){
   navigator.geolocation.getCurrentPosition(onLocation, onError);
@@ -28,12 +29,33 @@ function createMap(position){
   };
   map = new google.maps.Map($('#map')[0], mapOptions);
   createMarker(position);
+  loadPositions();
 }
 function createMarker(position) {
   var market = new google.maps.Marker({
     position: position,
     map: map
-  });
+  });  
+}
+
+function savePositions (position) {
+  var saved_positions;
+  if(savedPositions) {
+    saved_ositions.push(position);
+  } else{
+    saved_positions = []
+  }
+
+  window.localStorage.setItem("positions", savedPositions);
+}
+
+function loadPositions () {
+  // var positions = window.localStorage.getItem("positions");
+
+  // positions.forEach (function (position) {
+  //   createMarker(position);
+  // });
+
 }
 
 function setupAutocomplete() {
@@ -48,5 +70,6 @@ function setupAutocomplete() {
       alert("The place has no location...?")
     }
     createMarker(place.geometry.location);
+    savePositions(place.geometry.location);
   });
 }
