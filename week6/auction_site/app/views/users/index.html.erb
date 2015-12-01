@@ -1,5 +1,7 @@
 <h2>User's list</h2>
 
+<%= flash_message %>
+
 <% if(@users.any?) %>
   <ul>
     <% @users.each do |user| %>

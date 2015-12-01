@@ -12,3 +12,7 @@ User.create(name: "Roberto Quesada", email: "roberto@ironhack.com")
 User.create(name: "Raul Villalonga", email: "raul@ironhack.com")
 User.create(name: "Lara Hoya", email: "lara@ironhack.com")
 User.create(name: "Fernando López", email: "fernando@ironhack.com")
+
+User.all.each do |user|
+  user.products.create(title: "Product 1", description: "Description of product 1", deadline: "03/01/2016")
+end
