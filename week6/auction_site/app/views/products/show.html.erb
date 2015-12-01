@@ -32,3 +32,20 @@
   <h3>The auction has finished</h3>
   <p>The winner was: <%= @winner_user.name %> paying <%= format_price(@winner_bid.amount) %> €</p>
 <% end %>
+
+<% if current_user %>
+  <form action="/users/<%= current_user.id %>/products/<%= @product.id %>/reviews" method="post">
+    <input name="authenticity_token" type="hidden" value="J7CBxfHalt49OSHp27hblqK20c9PgwJ108nDHX/8Cts=" />
+    <label for="description"></label>
+    <input type="textarea" name="description" id="description" required><br>
+    <button type="submit">Send Review</button>
+  </form>
+<% end %>
+
+<% if @product.reviews.any? %>
+  <ul>
+    <% @product.reviews.each do |review| %>
+      <li><%= review.description %></li>
+    <% end %>
+  </ul>
+<% end %>

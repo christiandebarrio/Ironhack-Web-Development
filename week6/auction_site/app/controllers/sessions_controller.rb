@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to user_path(user)
     else
+      flash[:notice] = "User or password invalid"
       render 'new'
     end
   end

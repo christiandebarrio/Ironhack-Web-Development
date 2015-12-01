@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :new, :index, :create, :destroy] do
     resources :products, only: [:index, :show, :new, :create, :destroy] do
+      resources :reviews, only: [:create]
       resources :bids, only: [:create]
     end
   end

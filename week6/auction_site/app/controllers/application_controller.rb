@@ -14,6 +14,9 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_user
-
+    unless current_user
+      flash[:message] = 'Please log in or register to access this page'
+      redirect_to('/login')
+    end
   end
 end

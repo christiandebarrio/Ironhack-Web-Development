@@ -40,6 +40,9 @@ ActiveRecord::Schema.define(version: 20151201162616) do
     t.datetime "updated_at",  null: false
   end
 
+  add_index "reviews", ["product_id"], name: "index_reviews_on_product_id"
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"

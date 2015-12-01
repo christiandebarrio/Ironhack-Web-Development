@@ -6,12 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(name: "Lluis Arévalo", email: "lluis@ironhack.com")
-User.create(name: "Ana Llorca", email: "ana@ironhack.com")
-User.create(name: "Roberto Quesada", email: "roberto@ironhack.com")
-User.create(name: "Raul Villalonga", email: "raul@ironhack.com")
-User.create(name: "Lara Hoya", email: "lara@ironhack.com")
-User.create(name: "Fernando López", email: "fernando@ironhack.com")
+# User.create(name: "Lluis Arévalo", email: "lluis@ironhack.com")
+# User.create(name: "Ana Llorca", email: "ana@ironhack.com")
+# User.create(name: "Roberto Quesada", email: "roberto@ironhack.com")
+# User.create(name: "Raul Villalonga", email: "raul@ironhack.com")
+# User.create(name: "Lara Hoya", email: "lara@ironhack.com")
+# User.create(name: "Fernando López", email: "fernando@ironhack.com")
 
 User.all.each do |user|
   user.products.create(title: "Product 1", description: "Description of product 1", deadline: "03/01/2016")

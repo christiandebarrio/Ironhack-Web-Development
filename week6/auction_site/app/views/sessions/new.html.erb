@@ -1,6 +1,8 @@
 <h1>Login User</h1>
 
-<%= form_tag '/login' do %>
+<%= flash_message %>
+
+<%= form_tag login_path do %>
   <%= label_tag :email %>
   <%= text_field_tag :email %>
   <%= label_tag :password %>
