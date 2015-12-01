@@ -1,7 +1,3 @@
-<% if(@users.any?) %>
-  <ul>
-    <% @users.each do |user| %>
-      <li><%= @users.name %></li>
-    <% end %>
-  </ul>
-<% end %>
+<h1>Hello <%= @user.name %></h1>
+
+<%= link_to 'Products', user_products_path(@user) %>
