@@ -1,4 +1,5 @@
 var map;
+var savedPositions;
 window.localStorage.getItem("mark1")
 
 if ("geolocation" in navigator){
@@ -35,26 +36,26 @@ function createMarker(position) {
   var market = new google.maps.Marker({
     position: position,
     map: map
-  });  
+  });
 }
 
-function savePositions (position) {
-  var saved_positions;
+function savePosition(position) { 
   if(savedPositions) {
-    saved_ositions.push(position);
+    savedPositions.push(position);
   } else{
-    saved_positions = []
+    savedPositions = [];
+    savedPositions.push(position);
   }
 
-  window.localStorage.setItem("positions", savedPositions);
+  window.localStorage.setItem("positions", JSON.stringify(savedPositions));
 }
 
 function loadPositions () {
-  // var positions = window.localStorage.getItem("positions");
+  savedPositions = JSON.parse(window.localStorage.getItem("positions"));
 
-  // positions.forEach (function (position) {
-  //   createMarker(position);
-  // });
+  savedPositions.forEach(function(position) {
+    createMarker(position);
+  });
 
 }
 
@@ -70,6 +71,6 @@ function setupAutocomplete() {
       alert("The place has no location...?")
     }
     createMarker(place.geometry.location);
-    savePositions(place.geometry.location);
+    savePosition(place.geometry.location);
   });
 }
